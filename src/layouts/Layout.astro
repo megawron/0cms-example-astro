@@ -1,6 +1,5 @@
 ---
 const { title } = Astro.props;
-import '../style.css';
 ---
 
 <!DOCTYPE html>
@@ -9,10 +8,24 @@ import '../style.css';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} | 0CMS Astro Example</title>
+  <style>
+    :root { --primary: #2563eb; --secondary: #64748b; --border: #e2e8f0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1e293b; line-height: 1.6; margin: 0; padding: 0; }
+    header { background: var(--primary); color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
+    nav a { color: white; margin-left: 1rem; text-decoration: none; }
+    footer { background: var(--secondary); color: white; padding: 2rem; margin-top: 2rem; text-align: center; }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+    .card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+    .accordion { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 1rem; }
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-header { padding: 1rem; background: #f8fafc; cursor: pointer; font-weight: bold; }
+    .accordion-content { padding: 1rem; display: none; }
+    .accordion-item.active .accordion-content { display: block; }
+  </style>
 </head>
 <body>
   <header>
-    <h1><a href="/" style="color: white; text-decoration: none;">0CMS Astro</a></h1>
+    <h1><a href="/" style="color:white;text-decoration:none">0CMS Astro</a></h1>
     <nav>
       <a href="/">Home</a>
       <a href="/about">About</a>
@@ -26,10 +39,8 @@ import '../style.css';
     <p>&copy; 2026 0CMS Astro Example. Built with Astro.</p>
   </footer>
   <script>
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        header.parentElement.classList.toggle('active');
-      });
+    document.querySelectorAll('.accordion-header').forEach(h => {
+      h.addEventListener('click', () => h.parentElement.classList.toggle('active'));
     });
   </script>
 </body>
