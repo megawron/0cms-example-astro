@@ -1,0 +1,36 @@
+---
+const { title } = Astro.props;
+import '../style.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} | 0CMS Astro Example</title>
+</head>
+<body>
+  <header>
+    <h1><a href="/" style="color: white; text-decoration: none;">0CMS Astro</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+  <main class="container">
+    <slot />
+  </main>
+  <footer>
+    <p>&copy; 2026 0CMS Astro Example. Built with Astro.</p>
+  </footer>
+  <script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        header.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
