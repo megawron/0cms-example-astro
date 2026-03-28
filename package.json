@@ -1,5 +1,5 @@
 {
-  "name": "0cms-example-astro",
+  "name": "example-astro",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
